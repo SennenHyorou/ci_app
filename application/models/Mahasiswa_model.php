@@ -45,4 +45,14 @@ class Mahasiswa_model extends CI_model {
 		$this->db->update('tbmahasiswa', $data);
      
 	}
+
+	public function cariDataMahasiswa()
+	{
+		$keyword = $this->input->post('keyword', true);
+		$this->db->like('nama',$keyword);
+		$this->db->or_like('jurusan',$keyword);
+		$this->db->or_like('npm',$keyword);
+		$this->db->or_like('email',$keyword);
+		return $this->db->get('tbmahasiswa')->result_array();
+	}
 }
