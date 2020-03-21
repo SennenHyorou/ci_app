@@ -13,10 +13,7 @@
                   
                   <a href="<?= base_url(); ?>mahasiswa" class="btn btn-primary">Kembali</a>
             </div>
-            </div>`
-
-
-
+            </div>
         </div>
     </div>
 </div>
