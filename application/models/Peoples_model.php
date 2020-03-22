@@ -7,8 +7,12 @@ class Peoples_model extends CI_Model
         return $this->db->get('tbpeoples')->result_array();
     }
 
-    public function getPeople($limit, $start)
+    public function getPeoples($limit, $start, $keyword = null)
     {
+        if($keyword){
+            $this->db->like('name', $keyword);
+            $this->db->or_like('email', $keyword);
+        }
         return $this->db->get('tbpeoples',$limit,$start)->result_array();
     }
 
